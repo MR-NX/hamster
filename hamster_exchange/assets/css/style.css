@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #f2f2f2;
+  display: block;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  top: 0;
+  left: 0;
+  padding: 0;
+  background: #0D0E12;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.miniapp {
+  width: 100%;
+  max-width: 100%;
+  background: #0D0E12;
+}
+
+.container {
+  padding: 20px;
+}
+
+
+.miniapp_up {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.miniapp_up_image {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+.miniapp_up_tittle {
+  color: #FFF;
+font-size: 34px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-align: center;
+position: relative;
+top: -20px;
+}
+.miniapp_up_subtittle {
+  color: #A8A8A8;
+text-align: center;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+max-width: 335px;
+display: block;
+margin: 0 auto;
+}
+.miniapp_main {
+  margin-top: 25px;
+}
+.miniapp_main_tittle {
+  color: #FFF;
+text-align: center;
+font-size: 28px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.miniapp_main_rect {
+  margin-top: 15px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+background: #14161C;
+}
+.miniapp_main_rect_content {
+  padding: 15px;
+}
+
+.miniapp_main_blocks_content {
+  border-radius: 10px;
+background: #0D0E12;
+display: flex;
+flex-direction: column;
+padding: 10px 15px;
+}
+.miniapp_main_block {
+}
+.miniapp_main_block_up {
+  display: flex;
+  align-items: center;
+}
+.miniapp_main_block_text {
+  color: #A8A8A8;
+text-align: center;
+font-size: 14px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+}
+.miniapp_main_block_text:last-child{
+  margin-left: auto;
+}
+.miniapp_main_block_items {
+  margin-top: 9px;
+  display: flex;
+  align-items: center;
+}
+.miniapp_main_block_item:last-child {
+margin-left: auto;
+}
+.miniapp_main_block_item_coin {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  color: #FFF;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+padding: 12px 10px;
+border-radius: 10px;
+background: #14161C;
+text-transform: uppercase;
+}
+.miniapp_main_block_item_coin img{
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.miniapp_main_block_item_input {
+  color: #FFF;
+text-align: right;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+outline: none;
+border: none;
+background: transparent;
+width: 100%;
+max-width: 140px;
+}
+.miniapp_main_block_item_input::placeholder{
+  color: #FFF;
+}
+.miniapp_main_block_item_kurs {
+  margin-top: 3px;
+  color: #A8A8A8;
+text-align: right;
+font-size: 16px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+}
+.miniapp_bottom {
+  margin-top: 25px;
+  padding-bottom: 30px;
+}
+.miniapp_bottom_button button{
+display: flex;
+align-items: center;
+outline: none;
+border: none;
+color: #FFF;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+text-align: center;
+line-height: normal;
+justify-content: center;
+padding-top: 15px;
+padding-bottom: 15px;
+width: 100%;
+border-radius: 10px;
+background: #3F88F7;
+cursor: pointer;
+transition: all .5s;
+}
+
+.miniapp_bottom_button button:hover{
+  opacity: .5;
+}
+
+.miniapp_bottom_button img{
+  vertical-align: middle;
+margin-right: 10px;
+}
+
+.miniapp_main_block_items {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+
+.miniapp_main_block:nth-child(2) .miniapp_main_block_item{
+  width: 100%;
+}
+
+.miniapp_main_block:nth-child(2) .miniapp_main_block_item:nth-child(2){
+  max-width: 30px;
+}
+.miniapp_main_block_item_line {
+  width: 100%;
+  height: 1px;
+  background: #16181F;
+}
+.miniapp_main_block_item_swap {
+  display: block;
+  margin: 0 auto;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.miniapp_main_block_item_input::-webkit-outer-spin-button,
+.miniapp_main_block_item_input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+@media (min-width:320px) and (max-width:374px){
+  .miniapp_up_tittle{
+    top: -20px;
+    font-size: 30px;
+  }
+}

