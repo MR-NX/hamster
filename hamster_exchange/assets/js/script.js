@@ -17,12 +17,19 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 
-  if(window.Telegram)
-  {
-    const tele = window.Telegram.WebApp;
-    tele.ready();
-    tele.expand();
-  }
+    let tg      = window.Telegram;
+  
+    if(tg != undefined){
+      if (tg.WebApp != undefined && tg.WebApp.initData != undefined){
+       
+      let safe    = tg.WebApp.initData;
+      
+      tg.WebApp.backgroundColor = '#0D0E12';
+      tg.WebApp.headerColor = '#0D0E12';
+      tg.WebApp.expand(); 
+  
+      }    
+    }
 
   // курс валюты (1 рубль = 0.016 евро)
   var exchangeRate = 0.00010023;
